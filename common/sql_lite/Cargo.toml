@@ -1,0 +1,16 @@
+[package]
+name = "sql_lite"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "sql_lite"
+crate-type = ["cdylib","rlib"]
+
+[dependencies]
+rusqlite = { version = "0.32.1" ,default-features = false,features = ["bundled"]}
+log = "0.4.22"
+
+[profile.release]
+lto = "fat"
+opt-level = "z"

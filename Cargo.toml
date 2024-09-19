@@ -1,0 +1,32 @@
+[package]
+name = "Safe_note"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["common/sql_lite","common/dirs","common/notify","common/fs2","common/winapi","common/winit","common/tray_item", "controller/painel_controller", "view/painel_load"]
+
+[[bin]]
+name = "painel_load"
+path = "view/painel_load/src/main.rs"
+
+[lib]
+name = "sql_lite"
+path = "common/sql_lite/src/lib.rs"
+
+[dependencies]
+notify = "6.1.1"
+rusqlite = { version = "0.32.1" ,default-features = false,features = ["bundled"]}
+dirs = "5.0.1"
+fs2 = "0.4.3"
+winapi = "0.3.9"
+winit = "0.30.5"
+tray-item = "0.10.0"
+log = "0.4.22"
+sql_lite = {path = "common/sql_lite" }
+painel_controller = {path = "controller/painel_controller"}
+
+
+[profile.release]
+lto = "fat"
+opt-level = "z"

@@ -1,0 +1,11 @@
+[package]
+name = "painel_load"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "painel_load"
+path = "src/main.rs"
+
+[dependencies]
+painel_controller = {path = "../../controller/painel_controller"}
